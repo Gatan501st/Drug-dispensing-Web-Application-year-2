@@ -1,0 +1,44 @@
+<?php
+session_start();
+?>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>pharmacy Login</title>
+  </head>
+  <body>
+    <form  action ='pharmacy_registry.php' method="POST" >
+
+      <div>
+        <label for="patient name">pharmacist name</label>
+        <input type="text" name="full_name" />
+
+        <div>
+          <label for="ssn number">ssn number</label>
+          <input type="number" name="ssn_number" />
+        </div>
+
+        <div>
+        <span class="details"> Phone Number</span>
+        <input
+          type="tell"
+          placeholder="enter a number"
+          name="phone_no"
+          required
+        />
+      </div>
+        <div>
+          <label for="password">password</label>
+          <input type="password" name="password" />
+        </div>
+      
+
+      <a href="">forgot password</a>
+      <div>
+        <input type="SUBMIT" value="Submit" />
+
+        <input type="RESET" />
+      </div>
+    </form>
+  </body>
+</html>
