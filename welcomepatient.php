@@ -2,7 +2,13 @@
 $full_name ="name";
 $password ="password";
 session_start();
-if (isset($_SESSION['full_name']))
+if (!isset($_SESSION['full_name'])){
+  echo "you are not logged in ";
+}
+else{
+  echo "welcome user  ";
+}
+
 ?>
 
 !DOCTYPE

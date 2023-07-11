@@ -1,3 +1,4 @@
+
 <?php
  session_start();
 ?>
@@ -6,7 +7,7 @@
     <head>
       <meta charset="UTF-8">
         <meta name = "viewport" content = "width=device-width,initial-scale=1.0"/>
-      <title>Pharmacy info</title>
+      <title>Patients form</title>
       <link rel="stylesheet " href="style.css">
       <meta charset="UTF-8">
     </head>
@@ -14,7 +15,7 @@
     <body>   
         <div class ="container">
         <div class ="title">Registration</div>
-         <form  action ='pharmacy_registry.php' method="POST" >
+         <form  action ='patients.php' method="POST" >
 
         
 
@@ -27,6 +28,11 @@
 
 
         
+          <div class="input-box">
+            <span class="details">Date of Birth</span>
+            <input type="Date"  name="Date_of_birth" required>
+          </div>
+
         
 
     
@@ -66,12 +72,18 @@
           </div>
 
           <div class="input-box">
-            <span class="details">contract number</span>
-            <input type="text"name="contract_no"  >
+            <label for="Payment">Payment:</label>
+            <select id="payment" name="method_of_payment">
+              <option>mpesa</option>
+              <option>cash</option>
+            </select>
           </div>
-
+  
+       <div class="gender-details">
+         <span class ="gender-info">Gender</span>
+        <input type="radio" name="gender" value="male"> Male
+        <input type="radio" name="gender" value="female"> Female
         
-
          
           <div class="category">
            
