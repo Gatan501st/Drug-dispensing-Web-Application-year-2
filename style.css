@@ -54,7 +54,7 @@ form .User-details .input-box{
     margin-bottom: 15px;
     margin: 20px 0 12px 0;
     width: calc(100% / 2 - 20px);
-
+    font-family: Montserrat;
 }
 .User-details .input-box .details{
     display: block;
