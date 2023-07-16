@@ -1,0 +1,46 @@
+body{
+    padding-left:11em;
+    font-family:Arial, Helvetica, sans-serif;
+    colour:purple;
+    background: colour #d8d8d8;
+    ul.navbar{
+        list-style-type: armenian;
+        padding-right: 0%;
+        margin:0;
+        position:absolute;
+        top:2em;
+        left:1em;
+        right:10em;
+    width:9em;
+    }
+}
+h1{
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+
+}
+ul.navbar li{
+    background:whitesmoke;
+    margin:0.5em 0;
+    padding:0.3em 0;
+    border-right:1em solid black;
+    ul.navbar a{
+        text-decoration:none}
+        a:link{
+            color:blueviolet}
+            a:link{
+                color:blueviolet}
+                a.visited{
+                    color:antiquewhite
+                }
+address{
+    margin-top: 1em;
+    padding-top: 1em;
+    border-top: thin;
+
+}
+            }
+
+        
+    
+
+
