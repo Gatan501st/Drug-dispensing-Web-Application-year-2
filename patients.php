@@ -38,6 +38,14 @@ $method_of_payment=$_POST['method_of_payment'];
     $stmt->close();
 }
 
+
 // Close the database connection
+
+
+    header('Location: redirect.html') or die ("failed");
+
+
+
 $conn->close();
+
 ?>
