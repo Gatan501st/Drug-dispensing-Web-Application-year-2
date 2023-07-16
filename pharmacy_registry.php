@@ -33,10 +33,16 @@ $contract_no=$_POST['contract_no'];
         echo "Error during registration: " . $stmt->error;
     }
 
+    
+
     // Close the prepared statement
     $stmt->close();
+   
+     
 }
+// Create a redirection code
+$redirectUrl = "PharmacyLogin.php";
 
-// Close the database connection
-$conn->close();
+// Redirect the user to the login page
+header("Location: $redirectUrl");
 ?>
