@@ -1,33 +1,37 @@
-
 <?php
 session_start();
-// Check if the user is already logged in
-if(isset($_SESSION['user_id'])) {
-  // Redirect to the logged-in user's dashboard or homepage
-  header("Location: welcomepharmacist.php");
-  exit();
-}
 
-// Check if the login form is submitted
-if(isset($_POST['submit'])) {
-  // Simulate a database check for username and password
-  $full_name = $_POST['full_name'];
-  $password = $_POST['password'];
-
-  // Your actual database validation logic should go here
-  // For simplicity, this example uses hardcoded values
-  $validUsername = 'full_name';
-  $validPassword = 'password';
-
-  if($username === $validUsername && $password === $validPassword) {
-    // Authentication successful
-    $_SESSION['user_id'] = 1; // Set the user's ID in the session
-    header("Location: welcomepharmacist.html"); // Redirect to the dashboard or homepage
-    exit();
-  } else {
-    // Invalid username or password
-    $error = "Invalid username or password";
-  }
+// Check if the form is submitted
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Connect to the database
+    $host = "localhost";
+    $username = "root";
+    $password = "";
+    $database = "drug_dispensing_app";
+    
+    try {
+        $db = new PDO("mysql:host=$host;database=$database", $username, $password);
+        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        
+        // Retrieve the user's password from the database
+        $stmt = $db->prepare('SELECT password FROM pharmacy WHERE full_name = :full_name');
+        $stmt->execute(['username' => $_POST['username']]);
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        
+        // Check if the password is correct
+        if ($row && password_verify($_POST['password'], $row['password'])) {
+            // Set the full name in the session
+            $_SESSION['full_name'] = $_POST['full_name'];
+            
+            // Redirect to the home page
+            header('Location: welcomepharmacist.html');
+            exit();
+        } else {
+            echo 'Invalid username or password!';
+        }
+    } catch (PDOException $e) {
+        echo 'Database connection error: ' . $e->getMessage();
+    }
 }
 ?>
 

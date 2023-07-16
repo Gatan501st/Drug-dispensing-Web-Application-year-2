@@ -9,7 +9,7 @@
     <link rel="stylesheet " href="style.css">
   </head>
   <body>
-    <form action="">
+    <form action="welcomepatient.php" method ="post">
       <div>
       <label for="patient name">patient name</label>
       <input type="text" name="full_name" />
