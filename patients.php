@@ -4,7 +4,6 @@ $username = "root";
 $password = "";
 $database = "drug_dispensing_app";
 
-
 // Create a database connection
 $conn = new mysqli($host, $username, $password, $database);
 if ($conn->connect_error) {
@@ -42,7 +41,7 @@ $method_of_payment=$_POST['method_of_payment'];
 // Close the database connection
 
 
-    header('Location: redirect.html') or die ("failed");
+    header('Location: patientLogin.php') or die ("failed");
 
 
 

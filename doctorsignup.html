@@ -5,41 +5,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 
-    <title>doctor sign up</title>
+    <title>Doctors sign up</title>
     <meta charset="UTF-8" />
   </head>
   <body>
-    <form action="">
+    <div class ="container">
+      <div class ="title"> Doctor Registration</div>
+    <form action="doctor_registry.php" method="post">
+
+      <div class="User-details">
       <div class="input-box">
         <span class="details"> Full Name</span>
 
-        <input
-          type="text"
+        <input type="text"
           placeholder="enter your name"
           name="full_name"
-          required
-        />
-      </div>
-
-      <div class="input-box">
-        <span class="details">SSN Number</span>
-        <input
-          type="text"
-          placeholder="enter your number "
-          name="ssn_number"
-          required
-        />
-      </div>
-
-      <div>
-        <span class="details"> speciality</span>
-
-        <input
-          type="text"
-          placeholder="enter your speciality"
-          name="speciality"
-          required
-        />
+          required>
       </div>
 
       <div class="input-box">
@@ -47,21 +28,56 @@
         <input
           type="text"
           placeholder="enter a valid email"
-          name="email"
+          name="Email"
           required
-        />
+        >
+      </div>
+
+        <div class="input-box">
+          <span class="details">SSN Number</span>
+          <input
+            type="text"
+            placeholder="enter your number "
+            name="ssn_number"
+            required
+          >
+        </div>
+
+        <div class="input-box">
+          <span class="details">Address</span>
+          <input
+            type="text"
+            placeholder="enter your Address "
+            name="address"
+            required> 
+        </div>
+
+      
+      <div class="input-box">
+        <span class="details">Phone number</span>
+        <input
+          type="text"
+          placeholder="enter your number "
+          name="phone_number"
+          required
+        >
       </div>
 
       <div class="input-box">
-        <span class="details">Password</span>
+        <span class="details">specialty</span>
         <input
-          type="password"
-          placeholder="Enter a Password"
-          name="password"
+          type="text"
+          placeholder="enter specialty "
+          name="speciality"
           required
-          autocomplete
-          maxlength="8"
-        />
+        >
+      </div>
+        
+      
+
+      <div class="input-box">
+        <span class="details">Password</span>
+        <input type="password"placeholder="Enter a Password"name="password" required autocomplete  maxlength="8" >
       </div>
 
       <div>
