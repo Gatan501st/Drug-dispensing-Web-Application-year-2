@@ -17,7 +17,7 @@ if (isset($_SERVER["REQUEST_METHOD"]) && $_SERVER["REQUEST_METHOD"] === "POST") 
 
     
     $stmt = $conn->prepare("INSERT INTO patient_sickness (full_name, ssn_number, sickness_description) VALUES (?, ?, ?)");
-    $stmt->bind_param("sis", $full_name, $ssn_number, $sickness_description);
+    $stmt->bind_param("sss", $full_name, $ssn_number, $sickness_description);
     
     // Execute the statement
     if ($stmt->execute()) {
