@@ -18,11 +18,12 @@ if (isset($_SERVER["REQUEST_METHOD"]) && $_SERVER["REQUEST_METHOD"] === "POST") 
     $ssn_number = $_POST['ssn_number'];
     $address = $_POST['address'];
     $phone_number = $_POST['phone_number'];
-    $specialty = $_POST['specialty'];
     $password = $_POST['password'];
+    $specialty = $_POST['specialty'];
+    
 
     // Prepare and bind the SQL statement
-    $stmt = $conn->prepare("INSERT INTO doctors (full_name, Email, ssn_number, address, phone_no, specialty, password) VALUES (?, ?, ?, ?, ?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO doctors (full_name, Email, ssn_number, address, phone_number, specialty, password) VALUES (?, ?, ?, ?, ?, ?, ?)");
     $stmt->bind_param("ssssiss", $full_name, $Email, $ssn_number, $address, $phone_number, $specialty, $password);
 
     // Execute the statement

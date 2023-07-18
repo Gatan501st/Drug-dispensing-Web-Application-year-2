@@ -14,8 +14,8 @@ if (isset($_SERVER["REQUEST_METHOD"]) && $_SERVER["REQUEST_METHOD"] === "POST") 
     // Rest of the code to handle the registration process 
     $full_name=$_POST['full_name'];
 $Date_of_birth=$_POST['Date_of_birth'];
-$Email=$_POST['Email'];
 $ssn_number=$_POST['ssn_number'];
+$Email=$_POST['Email'];
 $address=$_POST['address'];
 $phone_number=$_POST['phone_number'];
 $password=$_POST['password'];
@@ -24,7 +24,7 @@ $method_of_payment=$_POST['method_of_payment'];
 
     // Prepare and bind the SQL statement
     $stmt = $conn->prepare("insert into patients(full_name,Date_of_Birth,ssn_number,Email,address,phone_number,password,gender,method_of_payment )values(?,?,?,?,?,?,?,?,?)");
-    $stmt->bind_param("sssssisss",$full_name,$Date_of_birth,$Email,$ssn_number,$address,$phone_number,$password,$gender,$method_of_payment);
+    $stmt->bind_param("sssssisss",$full_name,$Date_of_birth,$ssn_number,$Email,$address,$phone_number,$password,$gender,$method_of_payment);
 
     // Execute the statement
     if ($stmt->execute()) {
