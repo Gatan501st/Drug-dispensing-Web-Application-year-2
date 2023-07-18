@@ -1,5 +1,5 @@
 <?php
-require_once "connection.php";
+require_once "connect2.php";
 
 if(isset($_POST["update"])){
     $full_name = $_POST['full_name'];
@@ -9,7 +9,7 @@ if(isset($_POST["update"])){
     $phone_number = $_POST['phone_number'];
     $password = $_POST['password'];
     $specialty = $_POST['specialty'];
-    $sql="UPDATE doctors SET ssn_number='$ssn_number', full_name='$full_name',lastname='$lastname',emailaddress='$emailaddress',password='$password',phone='$phone',yearsofexperience='$yearsofexperience',gender='$gender',specialty='$specialty',extrainfo='$extrainfo' ";
+    $sql="UPDATE doctors SET full_name='$full_name', Email='$Email',ssn_number='$ssn_number',address='$address',phone_number='$phone_number',password='$password',specialty='$specialty'";
     if($conn->query($sql)===TRUE){
         header("Location:htmltabledoctors");
     
@@ -26,48 +26,78 @@ if(isset($_POST["update"])){
 		<title>Patient Information Page</title>
 		<meta charset="UTF=8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet"href="registrationfiles.css">
+        <link rel="stylesheet " href="style.css" />
 	</head>
 	<body>
 		<form action=""method="POST">
-			<label for="docSSN">Doctor SSN:</label><br>
-			<input type="number"id="docSSN"name="docSSN"><br>
+        <div class="User-details">
+      <div class="input-box">
+        <span class="details"> Full Name</span>
 
-			<label for="firstname">First Name:</label><br>
-			<input type="text"id="firstname"name="firstname"><br>
+        <input type="text"
+          placeholder="enter your name"
+          name="full_name"
+          required>
+      </div>
 
-            <label for="lastname">Last Name:</label><br>
-			<input type="text"id="lastname"name="lastname"><br>
+      <div class="input-box">
+        <span class="details"> Email</span>
+        <input
+          type="text"
+          placeholder="enter a valid email"
+          name="Email"
+          required
+        >
+      </div>
 
-			<label for="emailaddress">Email Address:</label><br>
-			<input type="email"id="emailaddress"name="emailaddress"size="50"><br>
+        <div class="input-box">
+          <span class="details">SSN Number</span>
+          <input
+            type="text"
+            placeholder="enter your number "
+            name="ssn_number"
+            required
+          >
+        </div>
 
-			<label for="password">Password:</label><br>
-			<input type="text"id="password"name="password"><br>
+        <div class="input-box">
+          <span class="details">Address</span>
+          <input
+            type="text"
+            placeholder="enter your Address "
+            name="address"
+            required> 
+        </div>
 
-			<label for="phone">Phone Number</label><br>
-			<input type="number"id="Age"name="Age" size="10"><br>
+      
+      <div class="input-box">
+        <span class="details">Phone number</span>
+        <input
+          type="number"
+          placeholder="enter your number "
+          name="phone_number"
+          required
+        >
+      </div>
 
-            <label for="yearsofexperience">Years Of Experience:</label><br>
-			<input type="number"id="yearsofexperience"name="yearsofexperience"><br>
+      <div class="input-box">
+        <span class="details">specialty</span>
+        <input
+          type="text"
+          placeholder="enter specialty "
+          name="specialty"
+          required
+        >
+      </div>
+        
+      
 
-			<label for="Gender">Gender:<br>Male</label>
-			<input type="radio"id="male"name="Gender"value="Male"><br>
+      <div class="input-box">
+        <span class="details">Password</span>
+        <input type="password"placeholder="Enter a Password"name="password" required autocomplete  maxlength="8" >
+      </div>
 
-			<label for="Gender">Female</label>
-			<input type="radio"id="female"name="Gender"value="Female"><br>
-
-			<label for="Gender">Prefer not to say</label>
-			<input type="radio"id="prefernottosay"name="Gender"value="Non-Disclosed"><br>
-
-
-			<label for="specialty">Specialty:</label><br>
-			<input type="text"id="specialty"name="specialty"><br>
-
-
-            <label for="anyotherinfo">Additional Information</label><br>
-			<input type="text"id="anyotherinfo"name="anyotherinfo"><br>
-
+      <div>
 <br><br><br>
 			<button><input type="reset"></button><br><br>
             <button><input type="submit" value="Submit" id="update" name="update"></button>
