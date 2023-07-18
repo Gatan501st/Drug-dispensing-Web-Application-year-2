@@ -1,117 +1,104 @@
-<?php
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  // Database connection details
-  $servername = "localhost";
-  $username = "root";
-  $password = "";
-  $database = "drug_dispensing_app";
-
-  // Create connection
-  $conn = new mysqli($servername, $username, $password, $database);
-
-  // Check connection
-  if ($conn->connect_error) {
-      die("Connection failed: " . $conn->connect_error);
-  }
-
-  // Delete record
-  if (isset($_GET['delete'])) {
-    $ssn_number = $_GET['delete'];
-    $deleteQuery = "DELETE FROM patients WHERE ssn_number = $ssn_number";
-    mysqli_query($conn, $deleteQuery);
-    header("Location: ".$_SERVER['PHP_SELF']);
-    exit();
-  }
-
-  // Update record
-  if (isset($_POST['update'])) {
-    $ssn_number = $_POST['ssn_number'];
-    $newFirstName = $_POST['firstName'];
-    $newEmail = $_POST['Email'];
-
-    $updateQuery = "UPDATE patients SET full_name = '$newFirstName', Email = '$newEmail' WHERE ssn_number = '$ssn_number'";
-    mysqli_query($conn, $updateQuery);
-    header("Location: ".$_SERVER['PHP_SELF']);
-    exit();
-  }
-
-  // Fetch data from the "patients" table
-  $query = "SELECT * FROM patients";
-  $result = mysqli_query($conn, $query);
-}
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
-<link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic" rel="stylesheet" />
-  <title>admin table Operations</title>
-  <style>
-    table {
-      border-collapse: collapse;
-    }
-
-    th, td {
-      border: 1px solid black;
-    }
-  </style>
+<link rel="stylesheet"href="table.css">
 </head>
 <body>
-  <table id="Table">
-    <thead>
-      <tr>
-        <th></th>
-        <th></th>
-        <th></th>
+<table>
+    <caption>
+        Doctor details.
+    </caption>
+    <tr> 
+        
+       
+        <th>full_name</th>
+       <th>Email </th> 
+       <th>doctor ssn number </th>
+         <th>address</th>   
+          <th>Phone Number</th>
+         <th>Password</th>
+        <th>Specialty</th>
+        
         <th>Actions</th>
-      </tr>
-    </thead>
+        <th>Actions</th>
+    </tr>
     <tbody>
-      <?php
-      if (isset($result) && $result->num_rows > 0) {
-          echo "<table>";
-          echo "<tr><th>ssn_number</th><th>full_name</th><th>Email</th><th>Actions</th></tr>";
-
-          // Output data of each row
-          while ($row = mysqli_fetch_assoc($result)) {
-              echo '<tr>';
-          
-              // Output the data for each column
-              echo '<td>' . $row['ssn_number'] . '</td>';
-              echo '<td>' . $row['full_name'] . '</td>';
-              echo '<td>' . $row['Email'] . '</td>';
-
-              // Add delete button with a link to delete the record
-              echo '<td><a href="?delete=' . $row['ssn_number'] . '">Delete</a></td>';
-              
-              echo '</tr>';
-          }
-          echo "</table>";
-      } else {
-          echo "0 results";
-      }
-      ?>
-    </tbody>
-  </table>
+        <?php
+        // Database connection details
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $database = "drug_dispensing_app";
   
-  <h2>Add New Record</h2>
-  <form method="POST">
-    <label>First Name: </label>
-    <input type="text" name="new-FullName" required><br>
-    <label>Email Address: </label>
-    <input type="Email" name="newEmail" required><br>
-    <input type="submit" name="add" value="Add">
-  </form>
+        // Create connection
+        $conn = new mysqli($servername, $username, $password, $database);
+  
+        // Check connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+        $selectQuery = "SELECT * FROM doctors";
+        $result = mysqli_query($conn, $selectQuery);
+  
+        // Display the table
+        if ($result->num_rows > 0) {
+            // Output data of each row
+            while ($row = mysqli_fetch_assoc($result)) {
+                ?>
+                <tr>
 
-  <h2>Update Record</h2>
-  <form method="POST">
-    <label>SSN Number: </label>
-    <input type="text" name="ssn_number" required><br>
-    <label>New First Name: </label>
-    <input type="text" name="firstName" required><br>
-    <label>New Email Address: </label>
-    <input type="Email" name="Email" required><br>
-    <input type="submit" name="update" value="Update">
-  </form>
-</body>
-</html>
+                <td><?php print $row['ssn_number']; ?></td>
+                <td><?php print $row['full_name'] ; ?></td>
+               
+                <td><?php print $row['email']; ?></td>
+                <td><?php print $row['password'] ; ?></td>
+                <td><?php print $row['phone_number'] ; ?></td>
+                <td><?php print $row['yearsofexperience'] ; ?></td>
+                <td><?php print $row['gender'] ; ?></td>
+                <td><?php print $row['specialty'] ; ?></td>
+                <td><?php print $row['extrainfo'] ; ?></td>
+                <td>  <a href="edit.php? ssn_number= <?php print $row["ssn_number"]; ?> " >Edit </a></td>
+                <td>  <a href="deletedoctor.php? ssn_number= <?php print $row["ssn_number"]; ?> " >Delete </a></td>
+            </tr>
+            <?php
+            } 
+        } else {
+                echo "0 results";
+                }
+
+        
+  ?>
+
+
+
+</table>
+
+<button><a href="doctorregistration.php">Add Doctor
+</a></button>
+
+    </body>
+    </html>
+  
+    <?php
+
+
+
+// Check if the user ID is provided in the URL
+if (isset($_GET['ssn_number'])) {
+    $ssn_number = $_GET['ssn_number'];
+
+    // Delete the user from the database
+    $deleteQuery = "DELETE FROM users WHERE ssn_number = $ssn_number";
+    $result = mysqli_query($conn, $deleteQuery);
+
+    // Check if the deletion was successful
+    if ($result) {
+        echo "User deleted successfully.";
+    } else {
+        echo "Error deleting user: " . mysqli_error($conn);
+    }
+}
+
+// Close the database connection
+mysqli_close($conn);
+?>
