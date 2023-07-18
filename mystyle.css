@@ -1,0 +1,268 @@
+body {
+    margin: 0;
+    padding:o;
+    font-family: Arial, sans-serif;
+    p{
+    background-image: url('pharmacy.jpg');
+    }
+    .container{
+        height:100vh;
+        width:100%;
+        background:linear-gradient(to right,#93c572 70%, #c8EBB1 30%);
+        position:relative;
+        overview:hidden;
+    }
+    .wave{
+        position:absolute;
+        top:0;
+        right:30%;
+    }
+    nav{
+        width:90%;
+        margin:auto;
+        padding-top:20px;
+        display:flex;
+        justfy-content:space-between;
+        align-items:center;
+    }
+    nav ul li a::after{
+        content:"";
+        width:100%;
+        height:100%;
+        position:absolute;
+        top:0;
+        left:0;
+        border-radius:20px;
+        background-color: #e83ec0;
+        z-index: -1;
+    }
+    .main-content{
+        width:60%;
+        padding-top:100px;
+        margin-left:3rem;
+        display:flex;
+        align-items:center;
+        justify-content:space-around;
+    }
+    .image-pharmacy,.main-text{
+        flex-basis:50%;
+    }
+    .image-pharmacy img{
+        width:100%;
+    }
+    .main-content{
+        font-size:60px;
+        letter-spacing:1px;
+        colour: #000;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+}
+.myimage{
+    width:200px;
+    height:auto;
+    border:2px solid blueviolet;
+    border-radius:5px;
+}
+
+nav {
+    background-color: #e83ec0;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.icon {
+    margin-right: 10px;
+}
+
+.logo {
+    margin: 0;
+}
+
+.menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu ul li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.menu ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.menu ul li a:hover {
+    background-color: #555;
+}
+
+.sideNavigationBar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100vh;
+    background-color: #333;
+    color: #fff;
+    padding-top: 60px;
+    transition: all 0.3s ease;
+}
+
+.sideNavigationBar a {
+    display: block;
+    padding: 10px 20px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.closeButton {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("background.jpg");
+    background-size: cover;
+    padding: 100px 0;
+    color: #fff;
+}
+
+.side1 {
+    text-align: center;
+}
+
+.side1 h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.side1 button {
+    background-color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    color: #333;
+    text-decoration: none;
+}
+
+.side1 button:hover {
+    background-color: #555;
+    color: #fff;
+}
+
+.side2 img {
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+.about {
+    padding: 100px 0;
+    text-align: center;
+}
+
+.about .title {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.about .content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact {
+    background-color: #f2f2f2;
+    padding: 100px 0;
+    text-align: center;
+}
+
+.contact .title {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.contact .content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact .input1 {
+    margin-bottom: 20px;
+}
+
+.contact .label1 {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.contact .input2 input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.contact .button {
+    margin-top: 20px;
+}
+
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
