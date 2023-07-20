@@ -14,30 +14,20 @@ if ($conn->connect_error) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $full_name = $_POST['full_name'];
+    $full_name = $_POST['username'];
     $password = $_POST['password'];
 
-    // Fetch user from the database based on the provided username
-    $selectQuery = "SELECT * FROM admin_page WHERE full_name = '$full_name'";
+    // Fetch user from the database based on the provided username and password
+    $selectQuery = "SELECT * FROM admin_page WHERE full_name = '$full_name' AND password = '$password'";
     $result = $conn->query($selectQuery);
 
     if ($result->num_rows === 1) {
-        // User found, check the password
-        $user = $result->fetch_assoc();
-        $hashedPassword = $user['password'];
-
-        // Verify the password using password_verify function
-        if (password_verify($password, $hashedPassword)) {
-            // Password is correct, authentication successful
-            echo "Authentication successful!";
-            // Perform further actions after successful authentication
-        } else {
-            // Password is incorrect
-            echo "Authentication failed! Incorrect password.";
-        }
+        // Authentication successful, redirect to another site
+        header('Location: test3.php');
+        exit();
     } else {
-        // User not found
-        echo "Authentication failed! User not found.";
+        // Authentication failed, show an error message
+        echo "Authentication failed! Incorrect username or password.";
     }
 }
 ?>
@@ -45,11 +35,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>admin page </title>
+    <title>Admin page</title>
 </head>
 <body>
-<div class ="container">
-            <div class ="title">Admin Login</div>
+<div class="container">
+    <div class="title">Admin Login</div>
     <form method="POST">
         <label>Username:</label>
         <input type="text" name="username" required><br>
@@ -58,6 +48,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <input type="submit" name="submit" value="Login">
     </form>
     <button onclick="location.href='logout.php'">LOGOUT</button>
-      <button onclick="location.href='admintable.php'" type="button">Go to Prescription Page</button>
 </body>
 </html>
