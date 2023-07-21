@@ -19,10 +19,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Redirect to the welcome page
     header('Location: welcomepatient.php');
     exit();
+    
 } else {
     echo 'Invalid password!';
 }
+
 }
+
 ?>
 <!DOCTYPE html>
 <html>

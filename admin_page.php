@@ -1,36 +1,34 @@
+
 <?php
-// Database connection details
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "drug_dispensing_app";
+session_start();
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $database);
+require_once "connect2.php";
 
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
+// Check if the form is submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $full_name = $_POST['username'];
-    $password = $_POST['password'];
 
-    // Fetch user from the database based on the provided username and password
-    $selectQuery = "SELECT * FROM admin_page WHERE full_name = '$full_name' AND password = '$password'";
-    $result = $conn->query($selectQuery);
+  $full_name=$_POST['full_name'];
+  $password = $_POST['password'];
 
-    if ($result->num_rows === 1) {
-        // Authentication successful, redirect to another site
-        header('Location: test3.php');
-        exit();
-    } else {
-        // Authentication failed, show an error message
-        echo "Authentication failed! Incorrect username or password.";
-    }
+  $result = $conn->query("SELECT `full_name`, `password` FROM `admin_page` WHERE `full_name` = '$full_name'");
+  $row = mysqli_fetch_assoc($result);
+
+  if ($_POST['password'] === $row["password"]) {
+    // Set the name in the session
+    $_SESSION['user'] = $row;
+    
+    // Redirect to the welcome page
+    header('Location: test3.php');
+    exit();
+    
+} else {
+    echo 'Invalid password!';
 }
+
+}
+
 ?>
+
 
 <!DOCTYPE html>
 <html>

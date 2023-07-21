@@ -104,3 +104,15 @@ form .gender-details .category{
     border: 5px solid transparent;
 
 }
+
+ul li a {
+    padding: 10px;
+    display: block;
+    text-decoration: none;
+    color: black;
+  }
+  
+  /* Add hover effect on links */
+  ul li a:hover {
+    background-color: #f1f1f1;
+  }

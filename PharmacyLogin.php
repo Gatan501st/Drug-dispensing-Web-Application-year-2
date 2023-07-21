@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-
 require_once "connect2.php";
+
 // Check if the form is submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -17,12 +17,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $_SESSION['user'] = $row;
     
     // Redirect to the welcome page
-    header('Location: welcomepharmacist.php');
+    header('Location: welcomepharmacy.php');
     exit();
+    
 } else {
     echo 'Invalid password!';
 }
+
 }
+
 ?>
 
 <!DOCTYPE html>

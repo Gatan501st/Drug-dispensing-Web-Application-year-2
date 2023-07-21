@@ -15,7 +15,8 @@ $username = $_SESSION['user']['full_name'];
   <h1>
     <?php
     echo "Welcome: " . $username;
-   ?></h1>
+   ?>
+   </h1>
 
 <div>
 <button onclick="location.href='logout.php'">LOGOUT</button>

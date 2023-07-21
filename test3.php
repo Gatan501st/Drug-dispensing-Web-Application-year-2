@@ -4,12 +4,22 @@
 <link rel="stylesheet"href="table.css">
 </head>
 <body>
+
+
+
+
+
+
+
+
 <table>
     <caption>
         Doctor details.
     </caption>
     <tr> 
-        
+    <?php
+echo "Welcome: " . $username;
+?>
        
         <th>full_name</th>
        <th>Email </th> 
@@ -156,7 +166,7 @@ mysqli_close($conn);
                 <td><?php print $row['phone_number'] ; ?></td>
                 
               
-                <td>  <a href="edit.php? ssn_number= <?php print $row["ssn_number"]; ?> " >Edit </a></td>
+                <td>  <a href="editpatient.php? ssn_number= <?php print $row["ssn_number"]; ?> " >Edit </a></td>
                 <td>  <a href="deletepatient.php? ssn_number= <?php print $row["ssn_number"]; ?> " >Delete </a></td>
             </tr>
             <?php
@@ -201,6 +211,9 @@ if (isset($_GET['ssn_number'])) {
 // Close the database connection
 mysqli_close($conn);
 ?>
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -275,6 +288,7 @@ mysqli_close($conn);
 
 <button><a href="pharmacy_info.html">Add pharmacist
 </a></button>
+<button><a href="logout.php">LOGOUT </a></button>
 
     </body>
     </html>
@@ -303,4 +317,27 @@ if (isset($_GET['ssn_number'])) {
 mysqli_close($conn);
 ?>
 
+
+
+
+$username = $_SESSION['user']['full_name'];
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+   
+</head>
+<body>
+
+
+
+<form action="logout.php" method="post">
+    <input type="submit" value="Logout">
+</form>
+
+
+
+</body>
+</html>
 

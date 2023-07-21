@@ -4,7 +4,7 @@ $username="root";
 $password="";
 $dbname="drug_dispensing_tool";
 //Connect to the database
-$connection=mysqli_ci=onnect($hostname, $username,$password,$dbname);
+$connection=mysqli=connect($hostname, $username,$password,$dbname);
 //Check the connection
 if(!$connection){
     die('Database connection failed:' .mysqli_connect_error());
