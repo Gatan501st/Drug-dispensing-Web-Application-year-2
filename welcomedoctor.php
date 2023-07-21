@@ -1,27 +1,30 @@
 <?php
 session_start();
 
-$username = $_SESSION['user']['full_name'];
+$username = $_SESSION['username']['full_name'];
 
 ?>
+
+
+
 <html>
   <head>
-    <link rel="stylesheet " href="style.css" />
-    <title>doctors page</title>
+  <link rel="stylesheet " href="style.css" />
+    <title>welcome to the dawa ke page</title>
   </head>
   <body>
   <div class ="container">
-    <p>welcome</p>
-    <h1>
+  <h1>
     <?php
-    echo "Welcome Doctor: " . $username;
+    echo "Welcome: " . $username;
    ?>
    </h1>
-   <div>
+
+<div>
 <button onclick="location.href='logout.php'">LOGOUT</button>
-<button onclick="location.href='patienttable.php'" type="button">Go to Patient Page</button>
+<button onclick="location.href='patienttable.php'" type="button">Go to Patient sickness Page</button>
 
 </div>
-  </div>
   </body>
+
 </html>

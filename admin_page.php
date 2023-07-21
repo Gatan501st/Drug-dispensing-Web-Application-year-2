@@ -1,32 +1,39 @@
-
 <?php
+// Start a new or resume an existing session
 session_start();
 
-require_once "connect2.php";
+// Database connection details
+$servername = "localhost";
+$username = "root";
+$password = "";
+$database = "drug_dispensing_app";
 
-// Check if the form is submitted
+// Create connection
+$conn = new mysqli($servername, $username, $password, $database);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $full_name = $_POST['username'];
+    $password = $_POST['password'];
 
-  $full_name=$_POST['full_name'];
-  $password = $_POST['password'];
+    // Fetch user from the database based on the provided username and password
+    $selectQuery = "SELECT * FROM admin_page WHERE full_name = '$full_name' AND password = '$password'";
+    $result = $conn->query($selectQuery);
 
-  $result = $conn->query("SELECT `full_name`, `password` FROM `admin_page` WHERE `full_name` = '$full_name'");
-  $row = mysqli_fetch_assoc($result);
-
-  if ($_POST['password'] === $row["password"]) {
-    // Set the name in the session
-    $_SESSION['user'] = $row;
-    
-    // Redirect to the welcome page
-    header('Location: test3.php');
-    exit();
-    
-} else {
-    echo 'Invalid password!';
+    if ($result->num_rows === 1) {
+        // Authentication successful, store username in a session variable and redirect to another site
+        $_SESSION['username'] = $full_name;
+        header('Location: test3.php');
+        exit();
+    } else {
+        // Authentication failed, show an error message
+        echo "Authentication failed! Incorrect username or password.";
+    }
 }
-
-}
-
 ?>
 
 

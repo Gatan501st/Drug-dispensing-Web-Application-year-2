@@ -9,23 +9,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $full_name=$_POST['full_name'];
   $password = $_POST['password'];
 
-  $result = $conn->query("SELECT `full_name`, `password` FROM `doctors` WHERE `full_name` = '$full_name';");
-  $row = $result->fetch_assoc();
+  $result = $conn->query("SELECT `full_name`, `password` FROM `doctors` WHERE `full_name` = '$full_name'");
+  $row = mysqli_fetch_assoc($result);
 
-  if ( $password == $row["password"]) {
+  if ($_POST['password'] === $row["password"]) {
     // Set the name in the session
-    $_SESSION['user'] = $row;
+    $_SESSION['username'] = $row;
     
     // Redirect to the welcome page
     header('Location: welcomedoctor.php');
     exit();
+    
 } else {
     echo 'Invalid password!';
-    header('Location: doctorslogin.php');
-    exit;
+}
 
 }
-}
+
 ?>
 
 
@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <body>
     <div class ="container">
       <div class ="title">doctor login</div>
-    <form action="welcomedoctor.php" method ="post">
+    <form action="" method ="post">
 
       <div class="User-details">
         <div class="input-box">

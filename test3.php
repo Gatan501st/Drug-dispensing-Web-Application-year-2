@@ -8,18 +8,12 @@
 
 
 
-
-
-
-
 <table>
     <caption>
         Doctor details.
     </caption>
     <tr> 
-    <?php
-echo "Welcome: " . $username;
-?>
+
        
         <th>full_name</th>
        <th>Email </th> 
@@ -211,9 +205,6 @@ if (isset($_GET['ssn_number'])) {
 // Close the database connection
 mysqli_close($conn);
 ?>
-
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -288,7 +279,7 @@ mysqli_close($conn);
 
 <button><a href="pharmacy_info.html">Add pharmacist
 </a></button>
-<button><a href="logout.php">LOGOUT </a></button>
+
 
     </body>
     </html>
@@ -319,10 +310,6 @@ mysqli_close($conn);
 
 
 
-
-$username = $_SESSION['user']['full_name'];
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -330,6 +317,10 @@ $username = $_SESSION['user']['full_name'];
 </head>
 <body>
 
+<?php
+
+echo "Welcome: Admin1" ;
+?>
 
 
 <form action="logout.php" method="post">

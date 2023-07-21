@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$username = $_SESSION['user']['full_name'];
+$username = $_SESSION['username']['full_name'];
 
 ?>
 <html>
@@ -20,7 +20,8 @@ $username = $_SESSION['user']['full_name'];
    ?></h1>
     <div>
       <button onclick="location.href='logout.php'">LOGOUT</button>
-      <button onclick="location.href='prescription.php'" type="button">Go to Prescription Page</button>
+      <button onclick="location.href='prescribe.html'" type="button">create Prescription, Page</button>
+      <button onclick="location.href='medicine_registry.php'" type="button">view Prescription, Page</button>
   </div>
 </div>
   </body>

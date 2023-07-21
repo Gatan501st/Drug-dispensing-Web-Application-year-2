@@ -14,10 +14,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   if ($_POST['password'] === $row["password"]) {
     // Set the name in the session
-    $_SESSION['user'] = $row;
+    $_SESSION['username'] = $row;
     
     // Redirect to the welcome page
-    header('Location: welcomepharmacy.php');
+    header('Location: welcomepharmacist.php');
     exit();
     
 } else {
@@ -35,7 +35,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet " href="style.css">
   </head>
   <body>
-    <form  action ='welcomepharmacist.php' method="POST" >
+  <div class ="container">
+        <div class ="title">Login</div>
+    <form  action ='pharmacyLogin.php' method="POST" >
 
       <div>
         <label for="pharmacist name ">pharmacist name</label>

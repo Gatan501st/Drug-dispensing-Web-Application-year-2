@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$username = $_SESSION['user']['full_name'];
+$username = $_SESSION['username']['full_name'];
 
 ?>
 
@@ -9,9 +9,11 @@ $username = $_SESSION['user']['full_name'];
 
 <html>
   <head>
+  <link rel="stylesheet " href="style.css" />
     <title>welcome to the dawa ke page</title>
   </head>
   <body>
+  <div class ="container">
   <h1>
     <?php
     echo "Welcome: " . $username;

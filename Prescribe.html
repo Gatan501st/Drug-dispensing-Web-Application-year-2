@@ -10,15 +10,33 @@
     </head>
     <body>
         <div class ="container">
-            <div class ="title">Prescribe_drugs</div>
+            <div class ="title">medication</div>
              <form  action ='Prescribe.php' method="POST" >
                 <div class="input-box">
-                    <span class="details">Patient_name</span>
-                    <input type="text" placeholder="enter name " name="patient_name" required>
+                    <span class="details">drug_name</span>
+                    <input type="text" placeholder="enter the drug name " name="drug_name" required>
+                  </div>
+                  
+                  <div class="input-box">
+                    <span class="details">Drug_ID</span>
+                    <input type="text" placeholder="enter the drug id " name="drug_ID" required>
+                  </div>
+
+                  <div class="input-box">
+                    <span class="details">chemical_composition</span>
+                    <input type="text" placeholder="enter the chemical compostion " name="chemical_composition" required>
                   </div>
                   <div class="input-box">
-                    <span class="details">Drug_namer</span>
-                    <input type="text" placeholder="enter the drug prescribed " name="drug_name" required>
+                    <span class="details">description</span>
+                    <input type="text" placeholder="enter description " name="description" required>
+                  </div>
+                  <div class="input-box">
+                    <span class="details">price</span>
+                    <input type="text" placeholder="enter price " name="price" required>
+                  </div>
+                  <div class="input-box">
+                    <span class="details">stock</span>
+                    <input type="text" placeholder="enter the stock " name="stock" required>
                   </div>
                   <input type="SUBMIT"  value="Submit"/>
 
